@@ -1,0 +1,112 @@
+<div data-ng-controller="StatusController">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="panel panel-default" data-ng-init="getMNStatus()">
+                <div class="panel-heading ">Masternodes
+                    <div class="pull-right badge" style="background: #FF5555 !important;">{{unknown + restart +
+                        watchdog + enabled}}</div>
+                </div>
+                <div class="panel-body text-center">
+                    <div class=" col-sm-6 text-success">
+                        <strong  translate>ENABLED </strong>
+                        </br> <span class="numbers">{{enabled}}</span>
+                    </div>
+                    <div class="col-sm-6 text-info">
+                        <strong  translate>WD_EXP </strong>
+                        <br> <span class="numbers">{{watchdog}}</span>
+
+                    </div>
+                    <div class="col-sm-12">
+                        <hr>
+                    </div>
+                    <div class="col-sm-6 text-danger">
+                        <strong  translate>NS_REQ </strong>
+                        <br> <span class="numbers">{{restart}}</span>
+
+                    </div>
+                    <div class=" col-sm-6 text-primary">
+                        <strong   translate>UNKNOWN </strong>
+                        <br> <span class="numbers">{{unknown}}</span>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-4">
+            <div class="panel panel-default">
+                <div class="panel-heading ">CoinRef</div>
+                <div class="panel-body text-center " data-ng-init="getStatus('Info')">
+                    <div class=" col-sm-6">
+                        <strong translate>DIFFICULTY</strong>
+                        </br> <span class="numbers">{{info.difficulty | number:3}}</span>
+                    </div>
+                    <div class="col-sm-6" data-ng-init="getStatus('NetworkHashps')">
+                        <strong translate>NetworkHashPs</strong>
+                        <br> <span class="numbers">{{nethash_g | number:3}} GHs</span>
+
+                    </div>
+                    <div class="col-sm-12">
+                        <hr>
+                    </div>
+                    <div class="col-sm-6 " data-ng-init="getStatus('TxOutSetInfo')">
+                        <strong translate>COIN SUPPLY</strong>
+                        <br> <span class="numbers">{{total_amount | number: 0}}</span>
+
+                    </div>
+                    <div class=" col-sm-6 " data-ng-init="getMNStatus()">
+                        <strong translate>1st REWARD</strong>
+                        <br> <span class="numbers">
+                            {{(unknown + enabled + watchdog + restart)*2.6 / 60 / 24 % 24 | number:0}}d
+                            {{(unknown + enabled + watchdog + restart)*2.6/60 % 24 | number:0}}h
+                            {{(unknown + enabled + watchdog + restart)*2.6 % 60| number:0}}m
+                        </span>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-4">
+            <div class="panel panel-default">
+                <div class="panel-heading ">LinkList</div>
+                <div class="panel-body text-center " data-ng-init="getStatus('Info')">
+                    <div class=" col-sm-6">
+                        <a href="https://www.sparkspay.io" target="_blank"><img src="./img/flame.png" style="width: auto; height: 25px;"
+                                alt="Sparks Website"><br>
+                            <span >Website</span>
+                        </a>
+                    </div>
+                    <div class=" col-sm-6">
+                        <a href="http://twitter.com/SparksPayIO" target="_blank"><img src="./img/twitter.png" style="width: auto; height: 25px;"
+                                alt="Sparks Twitter"><br>
+                            <span >Twitter</span>
+                        </a>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <hr>
+                    </div>
+                    <div class=" col-sm-6">
+                        <a href="https://discord.gg/QRPDXJn" target="_blank"><img src="./img/discord.png" style="width: auto; height: 25px;"
+                                alt="Sparks Discord"><br>
+                            <span >Discord</span>
+                        </a>
+                    </div>
+                    <div class=" col-sm-6">
+                        <a href="https://github.com/sparkspay" target="_blank"><img src="./img/Octocat.png" style="width: auto; height: 25px;"
+                                alt="Sparks Github"> <br>
+                            <span >Github</span>
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>

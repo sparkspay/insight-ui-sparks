@@ -41,9 +41,10 @@
     </script>
   </div>
 	<div id="wrap">
-		<div class="navbar navbar-default navbar-fixed-top" data-ng-include="'views/includes/header.html'" role='navigation'></div>
+    <div class="navbar navbar-default navbar-fixed-top" data-ng-include="'views/includes/header.html'" role='navigation'></div>
+    <section class="container" style="padding-top: 70px;" data-ng-include="'views/includes/header_blocks.html'"> </section>
 		<section class="container" data-ng-view></section>
-	</div>
+  </div>
 	<div id="footer" role="navigation">
     <div class="container" data-ng-controller="FooterController">
       <div class="links m20t pull-left">
@@ -65,6 +66,7 @@
         ]
       </div>
       <a class="insight m10v pull-right" target="_blank" href="http://insight.is">insight <small>API v{{version}}</small></a>
+ 
     </div>
   </div>
   <script language="javascript">window.apiPrefix = '/api';</script>

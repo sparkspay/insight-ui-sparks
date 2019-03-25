@@ -14,4 +14,8 @@ angular.module('insight.status')
   .factory('PeerSync',
     function($resource) {
       return $resource(window.apiPrefix + '/peer');
+    })
+    .factory('MasterNodes',
+    function($resource) {
+      return $resource(window.apiPrefix + '/masternodes/list/info');
     });

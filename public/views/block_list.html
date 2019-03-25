@@ -1,17 +1,17 @@
 <div data-ng-include src="'views/includes/connection.html'"></div>
 <section data-ng-controller="BlocksController" data-ng-init="list()">
-  <div class="row">
+  <div class="container">
     <div class="col-xs-12 col-gray col-gray-fixed">
       <div class="block-id">
-        <div class="icon-block text-center">
-          <span class="glyphicon glyphicon-list"></span>
+        <div class="icon-blockx text-center">
+          
           <h3><span translate>Blocks</span> <br> 
             <span translate>mined on:</span></h3>
         </div>
       </div>
       <p class="lead text-center m20v">
       {{pagination.current}} UTC
-      <div class="lead text-center m20v"><a href="#" class="btn btn-primary btn-xs" uib-datepicker-popup show-button-bar="false" data-ng-click="openCalendar($event)" data-ng-model="dt" is-open="opened" data-ng-model-options="{timezone: 'utc'}" data-ng-required="true" popup-placement="bottom"><span class="glyphicon glyphicon-calendar"></span></a></div>
+      <div class="lead text-center m20v"><a href="#" class="btn btn-primary btn-lg" uib-datepicker-popup show-button-bar="false" data-ng-click="openCalendar($event)" data-ng-model="dt" is-open="opened" data-ng-model-options="{timezone: 'utc'}" data-ng-required="true" popup-placement="bottom"><span class="glyphicon glyphicon-calendar"></span></a></div>
       </p>
       <div class="m20v text-center text-muted" data-ng-if="!pagination.current">
         <span translate>Loading Selected Date...</span>

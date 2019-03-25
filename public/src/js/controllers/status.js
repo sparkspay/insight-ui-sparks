@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('insight.status').controller('StatusController',
-  function($scope, $routeParams, $location, Global, Status, Sync, getSocket) {
+  function($scope, $routeParams, $location, Global, Status, Sync, MasterNodes, getSocket) {
     $scope.global = Global;
 
     $scope.getStatus = function(q) {
@@ -11,6 +11,17 @@ angular.module('insight.status').controller('StatusController',
         function(d) {
           $scope.loaded = 1;
           angular.extend($scope, d);
+        },
+        function(e) {
+          $scope.error = 'API ERROR: ' + e.data;
+        });
+    };
+
+    $scope.getMNStatus = function() {
+      MasterNodes.get({},
+        function(d) {
+          $scope.loaded = 1;
+          angular.extend($scope,d);
         },
         function(e) {
           $scope.error = 'API ERROR: ' + e.data;
@@ -52,4 +63,5 @@ angular.module('insight.status').controller('StatusController',
           };
         });
     };
+
   });
