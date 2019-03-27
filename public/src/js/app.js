@@ -13,6 +13,7 @@ angular.module('insight',[
   'monospaced.qrcode',
   'gettext',
   'angularMoment',
+  'datatables',
   'insight.system',
   'insight.socket',
   'insight.blocks',
@@ -22,7 +23,8 @@ angular.module('insight',[
   'insight.status',
   'insight.connection',
   'insight.currency',
-  'insight.messages'
+  'insight.messages',
+  'insight.richList'
 ]);
 
 angular.module('insight.system', []);
@@ -35,3 +37,4 @@ angular.module('insight.status', []);
 angular.module('insight.connection', []);
 angular.module('insight.currency', []);
 angular.module('insight.messages', []);
+angular.module('insight.richList', []);
