@@ -1,64 +1,87 @@
 <div data-ng-include src="'views/includes/connection.html'"></div>
 <section data-ng-controller="StatusController">
-  
   <div class="page-header">
-    <h1 translate>Application Status</h1>
-  </div>
-  <div class="col-xs-12 col-md-12 col-gray">
-    <h2 translate>Sparks node information</h2>
+    <h1 translate>Masternodes Status</h1>
   </div>
 
-  <table datatable="" class="row-border hover">
+  <div class="wraper-md" data-ng-init="getMNStatusList()">
+    <table datatable="ng" ng-if="items" class="table table-sm">
       <thead>
-      <tr>
-          <th>ID</th>
-          <th>First name</th>
-          <th>Last name</th>
-      </tr>
+        <tr>
+          <th>IP</th>
+          <th>STATUS</th>
+          <th>PROTOCOL</th>
+          <th>ADDR</th>
+          <th>ACTIVE SINCE</th>
+          <th>&nbsp;</th>
+        </tr>
       </thead>
       <tbody>
-      <tr>
-          <td>1</td>
-          <td>Foo</td>
-          <td>Bar</td>
-      </tr>
-      <tr>
-          <td>123</td>
-          <td>Someone</td>
-          <td>Youknow</td>
-      </tr>
-      <tr>
-          <td>987</td>
-          <td>Iamout</td>
-          <td>Ofinspiration</td>
-      </tr>
+        <tr data-ng-repeat="item in items" class="item {{ item.col }}">
+          <td>{{ item.ip.split(":")[0] }}</td>
+          <td>
+            <span ng-switch on="item.status">
+              <span ng-switch-when="NEW_START_REQUIRED" class="text-danger">
+                {{ item.status }}
+              </span>
+              <span ng-switch-when="UPDATE_REQUIRED" class="text-warning">
+                {{ item.status }}
+              </span>
+              <span ng-switch-when="SENTINEL_PING_EXPIRED" class="text-success">
+                {{ item.status }}
+              </span>
+              <span ng-switch-when="ENABLED" class="text-success">
+                {{ item.status }}
+              </span>
+
+              <span ng-switch-else>
+                {{ item.satus }}
+              </span>
+            </span>
+          </td>
+          <td>{{ item.protocol }}</td>
+          <td>
+            <a class="link" href="address/{{ item.payee }}">{{ item.payee }}</a>
+          </td>
+          <td>
+            <span class="pull-right">{{ item.activeseconds }}</span>
+          </td>
+          <td style="background-color: #FFFFFF !important">
+            <span ng-switch on="item.status">
+              <span
+                ng-switch-when="ENABLED"
+                class="text-success glyphicon glyphicon-ok"
+                aria-hidden="true"
+              >
+              </span>
+            </span>
+            <span ng-switch on="item.status">
+              <span
+                ng-switch-when="SENTINEL_PING_EXPIRED"
+                class="text-info glyphicon glyphicon-cog"
+                aria-hidden="true"
+              >
+              </span>
+            </span>
+            <span ng-switch on="item.status">
+              <span
+                ng-switch-when="NEW_START_REQUIRED"
+                class="text-danger glyphicon glyphicon-remove"
+                aria-hidden="true"
+              >
+              </span>
+            </span>
+            <span ng-switch on="item.status">
+              <span
+                ng-switch-when="UPDATE_REQUIRED"
+                class="text-danger glyphicon glyphicon-cog"
+                aria-hidden="true"
+              >
+              </span>
+            </span>
+          </td>
+        </tr>
       </tbody>
-  </table>
-
-  <div class="wrapper-md" data-ng-init="getMNStatusList()">
-  <table ng-if="items" datatable="" class="table table-striped m-b-none" >
-    <thead>
-      <tr>
-          <th >Title</th>
-          <th>First Name</th>
-          <th >Last Name</th>
-          <th >Email</th>
-
-      </tr>
-    </thead>
-    <tbody>
-      <tr data-ng-repeat="item in items">
-        <td>{{ item.ip }}</td>
-        <td>{{ item.status }}</td>
-        <td>{{ item.protocol }}</td>
-        <td>{{ item.payee }}</td>
-      </tr>
-    </tbody>
-    <tfoot>
-      <td>blaaaaaaa</td>
-    </tfoot>
-  </table>
-</div>
-  <div>blaa</div>
-
+    </table>
+  </div>
 </section>

@@ -16,7 +16,12 @@ angular.module('insight.system').controller('HeaderController',
     }, {
       'title': 'Status',
       'link': 'status'
-    }];
+    }
+    , {
+      'title': 'Masternodes',
+      'link': 'mnstatus'
+    }
+  ];
 
     $scope.openScannerModal = function() {
       var modalInstance = $uibModal.open({
