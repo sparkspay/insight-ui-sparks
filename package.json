@@ -1,7 +1,7 @@
 {
   "name": "insight-ui-sparks",
   "description": "An open-source frontend for the Insight API. The Insight API provides you with a convenient, powerful and simple way to query and broadcast data on the Sparks network and build your own services with it.",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "repository": "git://github.com/sparkspay/insight-ui-sparks.git",
   "contributors": [
     {
