@@ -22,7 +22,7 @@ angular.module('insight.system').controller('HeaderController',
       'link': 'mnstatus'
     }, 
     {
-      'title': 'Guardiannodes',
+      'title': 'Guardians',
       'link': 'gnstatus'
     }
   ];
