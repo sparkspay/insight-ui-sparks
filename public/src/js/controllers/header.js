@@ -16,10 +16,14 @@ angular.module('insight.system').controller('HeaderController',
     }, {
       'title': 'Status',
       'link': 'status'
-    }
-    , {
+    }, 
+    {
       'title': 'Masternodes',
       'link': 'mnstatus'
+    }, 
+    {
+      'title': 'Guardiannodes',
+      'link': 'gnstatus'
     }
   ];
 

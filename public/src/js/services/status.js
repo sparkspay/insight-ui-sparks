@@ -18,4 +18,10 @@ angular
   })
   .factory("MasterNodesList", function($resource) {
     return $resource(window.apiPrefix + "/masternodes/list");
-  });
+  })
+  .factory("GuardianNodes", function($resource) {
+    return $resource(window.apiPrefix + "/guardiannodes/list/info");
+  })
+  .factory("GuardianNodesList", function($resource) {
+    return $resource(window.apiPrefix + "/guardiannodes/list");
+  });;
